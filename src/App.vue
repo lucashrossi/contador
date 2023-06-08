@@ -1,28 +1,75 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   
+
+    <h1>{{titulo}}</h1>
+
+      <button v-on:click="suma" value="Click">Suma</button>
+      <button v-on:click="resta" value="Click">Resta</button>
+
+   
+
+      <HeaderH :numero="numero" :tituloh="tituloh" :total="total" :fecha="fecha" />
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import HeaderH from './components/HeaderH.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HeaderH
+  },
+  data() {
+        return {
+            titulo: "Contador",
+            numero: 5,
+            tituloh: "",
+            foto: "./2023.png",
+            total: 0,
+            fecha: 0
+           
+        }
+    },
+    created() {
+        this.calculo()
+    },
+    methods: {
+        calculo() {
+            this.total = 
+            this.numero = 10
+            this.tituloh =  "-"
+            this.fecha = Date(this.fecha).toString()
+        
+        },
+        suma() {
+            this.total += this.numero 
+            this.numero += 1
+            this.tituloh =  "Sumaste!"
+            this.fecha = Date(this.fecha).toString()
+                
+        },
+        resta() {
+            this.total -= this.numero
+            this.numero -= 1
+            this.tituloh =  "Restaste!"
+            this.fecha = Date(this.fecha).toString()
+             
+        }
+    },
+    computed: {
+        
+    }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
